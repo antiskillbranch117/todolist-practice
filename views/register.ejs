@@ -1,0 +1,45 @@
+
+<div class="main">
+    <h1>register</h1>
+<form action="/users/register" method="post" class="validated-form" novalidate >
+    <div class="submit">
+<label for="username">username</label>
+<input type="text" name="username">
+<label for="password">password</label>
+<input type="text" name="password">
+<button>Register</button>
+</div>
+</form>
+</div>
+<style>
+     body{
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        background-color: bisque;
+    }
+    div.main{
+        text-align: center;
+        background-color: white;
+        height: max-content;
+        width: max-content;
+        padding: 3rem;
+        box-shadow: 10px 10px lightblue;
+        display: flex;
+        flex-direction: column;
+    }
+    div.submit{
+        display: flex;
+        flex-direction: column;
+    }
+    button {
+  display: inline-block;
+  background-color: #7b38d8;
+  padding: 10px;
+  color: #ffffff;
+  text-align: center;
+  border: 4px double #cccccc; /* add this line */
+  border-radius: 10px; /* add this line */
+  font-size: 16px; /* add this line */
+}
+</style>

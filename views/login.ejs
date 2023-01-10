@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="main">
+    <h1>login</h1>
+<form action="/users/login" method="post" class="validated-form" novalidate>
+    <div class="submit">
+<label for="username">username</label>
+<input type="text" name="username">
+<label for="password">password</label>
+<input type="text" name="password">
+<button>login</button>
+</div>
+</form>
+<form action="/users/register" method="get">
+    <button>register</button>
+</form>
+</div>
+<style>
+    body{
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        background-color: bisque;
+    }
+    div.main{
+        text-align: center;
+        background-color: white;
+        height: max-content;
+        width: max-content;
+        padding: 3rem;
+        box-shadow: 10px 10px lightblue;
+    }
+    div.submit{
+        display: flex;
+        flex-direction: column;
+    }
+    button {
+  display: inline-block;
+  background-color: #7b38d8;
+  padding: 10px;
+  color: #ffffff;
+  text-align: center;
+  border: 4px double #cccccc; /* add this line */
+  border-radius: 10px; /* add this line */
+  font-size: 16px; /* add this line */
+}
+</style>
+</body>
+</html>

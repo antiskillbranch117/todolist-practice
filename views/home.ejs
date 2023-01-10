@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <div class="main">
+    <h1>Welcome</h1>
+    <br>
+    <div class="homepage" >
+    <p>Please input your tasks</p>
+    <form action="/" method="post" class="form1">
+        <label for="task"></label>
+        <input type="text" name="task" required placeholder="please input">
+        <button>Add!</button>
+    </form>
+    <ul>
+        
+        <% for( task of tasks){ %> 
+        <% if(currentUser && task.author.equals(currentUser._id)){ %> 
+            <li class="task">
+            <form action="/finish/<%= task._id %> " method="post" name="<%=task._id%>">
+                <input type="checkbox" name="checkbox" class="checkbox" id="<%=task._id%>" onchange="this.form.submit()" <% if(task.finish){ %> checked <% } %>  >
+            </form>
+
+            <% if(task.finish == false){ %> 
+                <p class="task">
+                <%= task.task %>
+            </p>
+            <% }else{ %> 
+                <p><del><%= task.task %></del></p> 
+            <% } %> 
+              <form action="/delete/<%= task._id %>" method="POST">
+                <button onclick="confirm('do you want to delete <%=task.task%>' )" class="button">Delete</button>
+                </form>
+             </li>
+             <hr>
+            <% } %> 
+            <% } %> 
+       
+            
+    </ul>
+    <form action="/users/logout" method="GET">
+        <button>logout</button>
+    </form>
+</div>
+</div>
+<style>
+    p{
+        margin: 0rem 2rem;
+        
+    }
+    body{
+        background-color: bisque;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+    }
+    div.homepage{
+        background-color: aquamarine;
+        display: flex;
+        flex-direction: column;
+        padding: 5rem;
+        text-align: center;
+        margin: 3rem;
+        width: max-content;
+        border-radius: 5px;
+        box-shadow: 10px 10px lightblue;
+    }
+    h1{
+        text-align: center;
+        border-radius: 10px;
+        background-color: blueviolet;
+        display: inline;
+        margin: 2rem;
+        padding: 1rem 2rem;
+    }
+    form.class1{
+        display: block;
+    }
+    div.main{
+        background-color: bisque;
+        margin: 5rem;
+    }
+    li{
+        display: flex;
+        flex-direction: row;
+    }
+    li.task{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+    }
+    button {
+  display: inline-block;
+  background-color: #7b38d8;
+  padding: 10px;
+  width: 90px;
+  color: #ffffff;
+  text-align: center;
+  border: 4px double #cccccc; 
+  border-radius: 10px; 
+  font-size: 16px; 
+}
+
+
+</style>
+</body>
+<script src="script.js"></script>
+</html>
